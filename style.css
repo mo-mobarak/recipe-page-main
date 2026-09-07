@@ -1,4 +1,4 @@
-@font-face{
+[source: 1]@font-face{
     font-family: 'Young Serif';
     src:url('./assets/fonts/young-serif/YoungSerif-Regular.ttf') format('truetype');
     font-weight: 400;
@@ -16,6 +16,19 @@
     font-weight: 700;
     font-style: normal;
 }
+
+:root {
+    --bg-body: hsl(30, 54%, 90%);
+    --bg-card: hsl(0, 0%, 100%);
+    --text-main: hsl(30, 10%, 34%);
+    --text-heading: hsl(24, 5%, 18%);
+    --primary-brown: hsl(14, 45%, 36%);
+    --prep-bg: hsl(330, 100%, 98%);
+    --prep-heading: hsl(332, 51%, 32%);
+    --border-color: hsl(30, 18%, 87%);
+    --link-color: hsl(228, 45%, 44%);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -23,9 +36,9 @@
 }
 
 body {
-    background-color: hsl(30, 54%, 90%);
+    background-color: var(--bg-body);
     font-family: 'Outfit', sans-serif;
-    color: hsl(30, 10%, 34%);
+    color: var(--text-main);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -36,11 +49,11 @@ body {
 }
 
 .recipe-card {
-    background-color: hsl(0, 0%, 100%);
+    background-color: var(--bg-card);
     width: 100%;
-    max-width: 736px;
-    border-radius: 0px;
-    padding: 0px;
+    max-width: 46rem;
+    border-radius: 0;
+    padding: 0;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     margin: 0 auto;
     overflow: hidden; 
@@ -50,7 +63,7 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 .recipe-content {
@@ -60,7 +73,7 @@ body {
 .recipe-content h1 {
     font-family: 'Young Serif', serif;
     font-size: 2.5rem;
-    color: hsl(24, 5%, 18%);
+    color: var(--text-heading);
     margin-bottom: 16px;
     font-weight: 400;
 }
@@ -68,19 +81,19 @@ body {
 .recipe-content > p {
     font-size: 1rem;
     line-height: 1.5;
-    color: hsl(30, 10%, 34%);
+    color: var(--text-main);
     margin-bottom: 32px;
 }
 
 .prep-time-container {
-    background-color: hsl(330, 100%, 98%);
+    background-color: var(--prep-bg);
     padding: 24px;
     border-radius: 12px;
     margin-bottom: 32px;
 }
 
-.prep-time-container h3 {
-    color: hsl(332, 51%, 32%);
+.prep-time-container h2 {
+    color: var(--prep-heading);
     font-size: 1.25rem;
     margin-bottom: 16px;
 }
@@ -88,7 +101,7 @@ body {
 .prep-time-container ul,
 .ingredients-section ul,
 .instructions-section ol {
-    padding-left: 20px;
+    padding-inline-start: 20px;
 }
 
 .prep-time-container li,
@@ -96,19 +109,19 @@ body {
 .instructions-section li {
     margin-bottom: 10px;
     line-height: 1.5;
-    padding-left: 8px;
+    padding-inline-start: 8px;
 }
 
 .prep-time-container li span {
     font-weight: 700;
-    color: hsl(24, 5%, 18%);
+    color: var(--text-heading);
 }
 
 .ingredients-section h2,
 .instructions-section h2,
 .nutrition-section h2 {
     font-family: 'Young Serif', serif;
-    color: hsl(14, 45%, 36%);
+    color: var(--primary-brown);
     font-size: 1.75rem;
     margin-bottom: 24px;
     font-weight: 400;
@@ -117,17 +130,17 @@ body {
 .ingredients-section {
     margin-bottom: 32px;
     padding-bottom: 32px;
-    border-bottom: 1px solid hsl(30, 18%, 87%);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .instructions-section {
     margin-bottom: 32px;
     padding-bottom: 32px;
-    border-bottom: 1px solid hsl(30, 18%, 87%);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .instructions-section li strong {
-    color: hsl(24, 5%, 18%);
+    color: var(--text-heading);
 }
 
 .nutrition-section {
@@ -147,19 +160,20 @@ body {
 .nutrition-row {
     display: flex;
     padding: 12px 24px;
-    border-bottom: 1px solid hsl(30, 18%, 87%);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .nutrition-row:last-child {
     border-bottom: none;
 }
 
-.nutrition-row span {
+.nutrition-row span,
+.nutrition-row .label {
     flex: 1;
 }
 
 .nutrition-row .value {
-    color: hsl(14, 45%, 36%);
+    color: var(--primary-brown);
     font-weight: 700;
 }
 
@@ -167,16 +181,11 @@ body {
     font-size: 0.8125rem;
     text-align: center;
     margin: 24px 0;
-    color: hsl(30, 10%, 34%);
+    color: var(--text-main);
 }
 
 .attribution a {
-    color: hsl(228, 45%, 44%);
-    text-decoration: none;
-}
-
-.attribution a {
-    color: hsl(228, 45%, 44%);
+    color: var(--link-color);
     text-decoration: none;
 }
 
@@ -184,7 +193,7 @@ body {
     text-decoration: underline;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
     body {
         padding: 4rem 0;
     }
@@ -192,6 +201,7 @@ body {
         border-radius: 24px; 
         max-width: 736px;
     }
+    
     .recipe-image {
         border-radius: 12px;
         margin: 40px 40px 0 40px;
